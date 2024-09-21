@@ -3,6 +3,11 @@ name: 'Validate Terraform files'
 on:
   pull_request:
 
+defaults:
+  run:
+    shell: bash
+    working-directory: ./IaC/
+
 permissions:
   contents: read
 
@@ -20,10 +25,8 @@ jobs:
         terraform_version: "1.1.7"
 
     - name: init
-      working-directory: ./IaC/
       run: terraform init
 
     - name: validate
-      working-directory: ./IaC/
       run: terraform validate
 
