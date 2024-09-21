@@ -1,0 +1,63 @@
+name: 'Run Terraform'
+
+on:
+  pull_request:
+
+  push:
+    branches:
+      - main
+
+env:
+  TF_LOG: INFO
+  TF_INPUT: false
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./IaC/
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: "1.1.7"
+
+    - id: init
+      name: Terraform Init
+      run: terraform init
+
+    - id: validate
+      name: Terraform Validate
+      run: terraform validate
+
+    - id: plan
+      name: Terraform Plan
+      env: 
+        TF_VAR_org_id: ${{ secrets.MONGO_DB_ATLAS_ORG_ID }}
+        TF_VAR_public_key: ${{ secrets.MONGO_DB_ATLAS_PUBLICKEY }}
+        TF_VAR_private_key: ${{ secrets.MONGO_DB_ATLAS_PRIVATEKEY }}
+        TF_VAR_dbuser: ${{ vars.DATABASE_USER }}
+        TF_VAR_dbuser_password: ${{ secrets.DATABASE_PASS }}
+      run: terraform plan 
+
+    - id: apply
+      if: github.ref == 'refs/heads/main'
+      name: Terraform Apply
+      env: 
+        TF_VAR_org_id: ${{ secrets.MONGO_DB_ATLAS_ORG_ID }}
+        TF_VAR_public_key: ${{ secrets.MONGO_DB_ATLAS_PUBLICKEY }}
+        TF_VAR_private_key: ${{ secrets.MONGO_DB_ATLAS_PRIVATEKEY }}
+        TF_VAR_dbuser: ${{ vars.DATABASE_USER }}
+        TF_VAR_dbuser_password: ${{ secrets.DATABASE_PASS }}
+      run: terraform apply 
+
