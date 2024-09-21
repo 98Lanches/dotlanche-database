@@ -6,13 +6,10 @@ resource "mongodbatlas_database_user" "user" {
 
   roles {
     role_name     = "readWrite"
-    database_name = var.database_name # The database name and collection name need not exist in the cluster before creating the user.
+    database_name = "dotlanches"
   }
   labels {
     key   = "Name"
-    value = "DB User1"
+    value = "dotlanches-api"
   }
-}
-output "user1" {
-  value = mongodbatlas_database_user.user.username
 }

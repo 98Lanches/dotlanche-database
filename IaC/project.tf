@@ -1,5 +1,5 @@
 resource "mongodbatlas_project" "project" {
-  name   = var.project_name
+  name   = "dotlanches-database"
   org_id = var.org_id
 }
 
