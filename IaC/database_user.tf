@@ -6,7 +6,7 @@ resource "mongodbatlas_database_user" "user" {
 
   roles {
     role_name     = "readWrite"
-    database_name = "dotlanches"
+    database_name = "dotlanche"
   }
   labels {
     key   = "Name"
