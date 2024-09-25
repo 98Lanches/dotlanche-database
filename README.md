@@ -10,3 +10,4 @@ O projeto DotLanche utiliza banco de dados MongoDB por meio do serviço em cloud
 
 * **Tecnologias Utilizadas:** MongoDB, Atlas, Terraform, Github Actions
 * **Licença:** MIT
+
