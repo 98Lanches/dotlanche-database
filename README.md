@@ -1,13 +1,21 @@
-# dotlanche-database
+# 🗃 dotlanche-database
 
-**Repositório para provisionamento da infraestrutura de banco de dados.**
+Repositório IaC para provisionamento de bancos de dados para os microsserviços dotlanches.  Contém as configurações de criação dos bancos de dados de cada microsserviço, bem como a criação de usuários das aplicações.
 
-O projeto DotLanche utiliza banco de dados MongoDB por meio do serviço em cloud **Atlas**.
+**Bancos Provisionados:**
+- Mongo DB Atlas para serviço de pedido
+- Postgresql AWS RDS para serviço de pagamento
+- Postgresql AWS RDS para serviço de produto
 
-* **Documentação Oficial do MongoDB Atlas:** https://www.mongodb.com/pt-br/docs/atlas/
+**Ferramentas:**
+- Terraform
+- GitHub Actions
+- MongoDB Atlas
+- Postgresql
+- AWS RDS
+
+# ⚠ ATUALIZAR ESTAS DOCUMENTAÇÕES ⚠
 * **Seleção do banco de dados:** https://github.com/98Lanches/dotlanche-database/wiki/Seleção-do-Banco-de-Dados
 * **Modelagem do banco de dados:** https://github.com/98Lanches/dotlanche-database/wiki/Modelagem-do-Banco-de-Dados
 
-* **Tecnologias Utilizadas:** MongoDB, Atlas, Terraform, Github Actions
 * **Licença:** MIT
-
