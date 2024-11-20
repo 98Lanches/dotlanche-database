@@ -1,5 +1,5 @@
 resource "mongodbatlas_project" "project" {
-  name   = "dotlanches-database"
+  name   = "dotlanches-databases"
   org_id = var.atlas_org_id
 }
 
@@ -11,10 +11,10 @@ resource "mongodbatlas_advanced_cluster" "cluster" {
 
   replication_specs {
     region_configs {
-      priority      = 7
-      provider_name = "TENANT"
+      priority              = 7
+      provider_name         = "TENANT"
       backing_provider_name = "AWS"
-      region_name   = "US_EAST_1"
+      region_name           = "US_EAST_1"
       electable_specs {
         instance_size = "M0"
       }
@@ -22,19 +22,35 @@ resource "mongodbatlas_advanced_cluster" "cluster" {
   }
 }
 
-resource "mongodbatlas_database_user" "user" {
-  username           = var.atlas_dbuser_name
-  password           = var.atlas_dbuser_password
+resource "mongodbatlas_database_user" "user_producao" {
+  username           = var.atlas_producao_dbuser_name
+  password           = var.atlas_producao_dbuser_password
   project_id         = mongodbatlas_project.project.id
   auth_database_name = "admin"
 
   roles {
     role_name     = "readWrite"
-    database_name = "dotlanche"
+    database_name = var.atlas_producao_db
   }
   labels {
     key   = "Name"
-    value = "dotlanches-api"
+    value = "dotlanches-producao-db"
+  }
+}
+
+resource "mongodbatlas_database_user" "user_pedido" {
+  username           = var.atlas_pedido_dbuser_name
+  password           = var.atlas_pedido_dbuser_password
+  project_id         = mongodbatlas_project.project.id
+  auth_database_name = "admin"
+
+  roles {
+    role_name     = "readWrite"
+    database_name = var.atlas_pedido_db
+  }
+  labels {
+    key   = "Name"
+    value = "dotlanches-pedido-db"
   }
 }
 
