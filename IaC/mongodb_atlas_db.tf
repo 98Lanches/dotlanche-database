@@ -60,10 +60,6 @@ resource "mongodbatlas_project_ip_access_list" "ip" {
   comment    = "allow all"
 }
 
-output "connection_strings" {
+output "atlas_db_address" {
   value = mongodbatlas_advanced_cluster.cluster.connection_strings[0].standard_srv
-}
-
-output "project_name" {
-  value = mongodbatlas_project.project.name
 }
