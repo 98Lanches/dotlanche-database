@@ -50,8 +50,14 @@ jobs:
         TF_VAR_atlas_org_id: ${{ secrets.MONGO_DB_ATLAS_ORG_ID }}
         TF_VAR_atlas_public_key: ${{ secrets.MONGO_DB_ATLAS_PUBLICKEY }}
         TF_VAR_atlas_private_key: ${{ secrets.MONGO_DB_ATLAS_PRIVATEKEY }}
-        TF_VAR_atlas_dbuser_name: ${{ vars.DATABASE_USER }}
-        TF_VAR_atlas_dbuser_password: ${{ secrets.DATABASE_PASS }}
+
+        TF_VAR_atlas_producao_db: ${{ vars.PRODUCAO_DATABASE_NAME }}
+        TF_VAR_atlas_producao_dbuser_name: ${{ vars.PRODUCAO_DB_USER }}
+        TF_VAR_atlas_producao_dbuser_password: ${{ secrets.PRODUCAO_DB_PASSWORD }}
+
+        TF_VAR_atlas_pedido_db: ${{ vars.PEDIDO_DATABASE_NAME }}
+        TF_VAR_atlas_pedido_dbuser_name: ${{ vars.PEDIDO_DB_USER }}
+        TF_VAR_atlas_pedido_dbuser_password: ${{ secrets.PEDIDO_DB_PASSWORD }}
 
         TF_VAR_pagamento_dbuser: ${{ vars.PAGAMENTO_DB_USER }}
         TF_VAR_pagamento_dbpassword: ${{ secrets.PAGAMENTO_DB_PASSWORD }}
@@ -67,8 +73,14 @@ jobs:
         TF_VAR_atlas_org_id: ${{ secrets.MONGO_DB_ATLAS_ORG_ID }}
         TF_VAR_atlas_public_key: ${{ secrets.MONGO_DB_ATLAS_PUBLICKEY }}
         TF_VAR_atlas_private_key: ${{ secrets.MONGO_DB_ATLAS_PRIVATEKEY }}
-        TF_VAR_atlas_dbuser_name: ${{ vars.DATABASE_USER }}
-        TF_VAR_atlas_dbuser_password: ${{ secrets.DATABASE_PASS }}
+
+        TF_VAR_atlas_producao_db: ${{ vars.PRODUCAO_DATABASE_NAME }}
+        TF_VAR_atlas_producao_dbuser_name: ${{ vars.PRODUCAO_DB_USER }}
+        TF_VAR_atlas_producao_dbuser_password: ${{ secrets.PRODUCAO_DB_PASSWORD }}
+
+        TF_VAR_atlas_pedido_db: ${{ vars.PEDIDO_DATABASE_NAME }}
+        TF_VAR_atlas_pedido_dbuser_name: ${{ vars.PEDIDO_DB_USER }}
+        TF_VAR_atlas_pedido_dbuser_password: ${{ secrets.PEDIDO_DB_PASSWORD }}
 
         TF_VAR_pagamento_dbuser: ${{ vars.PAGAMENTO_DB_USER }}
         TF_VAR_pagamento_dbpassword: ${{ secrets.PAGAMENTO_DB_PASSWORD }}
