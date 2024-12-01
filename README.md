@@ -3,9 +3,9 @@
 Repositório IaC para provisionamento de bancos de dados para os microsserviços dotlanches.  Contém as configurações de criação dos bancos de dados de cada microsserviço, bem como a criação de usuários das aplicações.
 
 **Bancos Provisionados:**
-- Mongo DB Atlas para serviço de pedido e produção
-- Postgresql AWS RDS para serviço de pagamento
-- Postgresql AWS RDS para serviço de produto
+- Mongo DB Atlas para serviço de pedido e produção.
+- Postgresql AWS RDS para serviço de pagamento.
+- Postgresql AWS RDS para serviço de produto.
 
 **Ferramentas:**
 - Terraform
